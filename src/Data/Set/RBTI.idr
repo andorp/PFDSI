@@ -13,8 +13,8 @@ data Color = R | B
 ||| The color of the root node of the tree.
 ||| The black height of the tree.
 |||
-||| Invariant 1:
-||| Invariant 2:
+||| Invariant 1: No red node has a red child.
+||| Invariant 2: Every path from the root to an empty node contains the same number of black nodes.
 data Tree : Type -> Color -> Nat -> Type where
   ||| The empty tree is Black and has 0 height.
   E  : Tree e B 0
@@ -204,5 +204,5 @@ namespace Insert
   insert1 : Ord e => e -> {n : Nat} -> Tree e B n -> (m : Nat ** Tree e B m)
   insert1 x t = case (ins x t) of
     (BRN (Ro a x b)) => (_ ** Bn a x b)
-    (BBN Eo)         => (_ ** E) -- TODO: Remove
+    (BBN Eo)         => (_ ** E) -- TODO: Filter out this invalid value.
     (BBN (Bo a x b)) => (_ ** Bn a x b)
