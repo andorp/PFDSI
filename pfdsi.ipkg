@@ -1,0 +1,13 @@
+package pfdsi
+
+authors = "Andor Penzes"
+
+depends = contrib
+
+sourcedir = "src"
+main = Main
+
+executable = pfdsi
+
+builddir = ".build"
+outputdir = ".exec"
