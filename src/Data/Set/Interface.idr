@@ -1,7 +1,5 @@
 module Data.Set.Interface
 
-import Data.Cert
-
 public export
 interface SET (Elem : Type) (Set : Type) where
   empty  : Set
